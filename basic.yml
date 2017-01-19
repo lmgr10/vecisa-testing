@@ -8,6 +8,9 @@
   ##
 
   - user:
-      name: pedro
-      comment: "Probando Pedro"
+      name: pepe
+      comment: "Probando Pepe"
+  
+  roles:
+     - role-nginx
       
