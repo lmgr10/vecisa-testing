@@ -1,0 +1,16 @@
+---
+- hosts: webservers
+  user: root
+
+  tasks:
+
+  #Instalación de paquetes
+  ##
+
+  - user:
+      name: pepe
+      comment: "Probando Pepe"
+  
+  roles:
+     - role-nginx
+      
