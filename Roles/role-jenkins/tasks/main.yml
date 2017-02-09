@@ -1,0 +1,5 @@
+---
+# tasks file for role-jenkins
+   - include: webserver.yml
+   - include: jenkins.yml
+          

@@ -1,0 +1,21 @@
+---
+# tasks file for role-jenkins
+   - name: Install repository for Jenkins
+     get_url: url=https://pkg.jenkins.io/redhat-stable/jenkins.repo
+              dest=/etc/yum.repos.d/jenkins.repo
+              mode=0440
+
+   - name: Import Key from Jenkins Repo
+     rpm_key: state=present
+              key=https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+   - name: Install Jenkins
+     yum: name=jenkins
+          state=latest
+
+   - name: Deploy Jenkins on Tomcat
+     copy: remote_src=True
+           src=/usr/lib/jenkins/jenkins.war
+           dest=/var/lib/tomcat/webapps/
+           owner=root
+           group=root  
