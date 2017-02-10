@@ -1,5 +1,5 @@
 ---
-- hosts: centos3
+- hosts: cliente2
   user: root
   roles:
     - role-jenkins
