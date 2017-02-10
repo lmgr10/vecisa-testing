@@ -19,3 +19,34 @@
            dest=/var/lib/tomcat/webapps/
            owner=root
            group=root  
+
+   - name: Check if we're using a password file for authentication
+     shell: cat /usr/share/tomcat/.jenkins/secrets/initialAdminPassword
+     register: adminpasswordfile
+
+   - name: Debug vars
+     debug: 
+       var=adminpasswordfile.stdout
+
+
+#   - name: Install Jenkins plugins using password.
+ #    command: >
+  #     java -jar /var/lib/tomcat/webapps/jenkins/WEB-INF/jenkins-cli.jar -s http://localhost:8080/jenkins/
+   #    install-plugin {{ item }}
+    #   --username admin
+     #  --password admin
+      # creates="usr/share/tomcat/.jenkins/plugins/{{ item }}.jpi"
+    # with_items: "{{ jenkins_plugins }}"
+    # when: jenkins_admin_password != ""
+    # notify: restart jenkins
+
+#   - name: Install Jenkins plugins using password-file.
+ #    command: >
+  #     java -jar /var/lib/tomcat/webapps/jenkins/WEB-INF/jenkins-cli.jar -s http://localhost:8080/jenkins/
+  #     install-plugin {{ item }}
+  #     --username admin
+  #     --password-file /usr/share/tomcat/.jenkins/secrets/initialAdminPassword
+  #     creates="usr/share/tomcat/.jenkins/plugins/{{ item }}.jpi"  
+  #   with_items: "{{ jenkins_plugins }}"
+  #   when: adminpasswordfile.stat.exists == True
+  #   notify: restart jenkins
