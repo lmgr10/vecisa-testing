@@ -38,3 +38,7 @@
        --password-file /usr/share/tomcat/.jenkins/secrets/initialAdminPassword
      with_items: "{{ jenkins_plugins }}"
      notify: restart jenkins
+
+   - name: Erase 'Unlock Jenkins' window
+     command: mv /usr/share/tomcat/.jenkins/secrets/initialAdminPassword /usr/share/tomcat/.jenkins/secrets/pass
+
