@@ -33,9 +33,8 @@
    - name: Install Plugin using password
      command: >
        java -jar /var/lib/tomcat/webapps/jenkins/WEB-INF/jenkins-cli.jar -s http://localhost:8080/jenkins/
-       install-plugin ws-cleanup
+       install-plugin {{ item }} 
        --username admin
        --password-file /usr/share/tomcat/.jenkins/secrets/initialAdminPassword
-       creates=/var/lib/jenkins/plugins/ws-cleanup.jpi
+     with_items: "{{ jenkins_plugins }}"
      notify: restart jenkins
-

@@ -1,5 +1,5 @@
 ---
-- hosts: centos3
+- hosts: centos_jenkins
   user: root
   roles:
     - role-jenkins
