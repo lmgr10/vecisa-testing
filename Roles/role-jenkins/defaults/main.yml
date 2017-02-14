@@ -1,2 +1,7 @@
 ---
 # defaults file for role-jenkins
+
+jenkins_plugins: [
+ace-editor,
+ace-editor.jpi,
+ant]

@@ -1,0 +1,4 @@
+---
+# tasks file for role-jenkins
+   - name: Install plugin
+     jenkins_plugin: name=build-pipeline-plugin

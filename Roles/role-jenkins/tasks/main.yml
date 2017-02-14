@@ -1,5 +1,5 @@
 ---
 # tasks file for role-jenkins
-   - include: webserver.yml
+#   - include: webserver.yml
    - include: jenkins.yml
-          
+#   - include: plugin.yml       
