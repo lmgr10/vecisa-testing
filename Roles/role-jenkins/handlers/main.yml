@@ -1,5 +1,5 @@
 ---
 # handlers file for role-jenkins
-- name: restart jenkins
+- name: Restart jenkins
   service: name=jenkins
            state=restarted
