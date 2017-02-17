@@ -30,6 +30,10 @@
 #     debug: 
 #       var=adminpasswordfile.stdout
 
+   - pause:
+      minutes: 1
+
+
    - name: Install Plugin using password
      command: >
        java -jar /var/lib/tomcat/webapps/jenkins/WEB-INF/jenkins-cli.jar -s http://localhost:8080/jenkins/
@@ -39,6 +43,6 @@
      with_items: "{{ jenkins_plugins }}"
 
     
-#   - name: Erase 'Unlock Jenkins' window
-#     command: mv /usr/share/tomcat/.jenkins/secrets/initialAdminPassword /usr/share/tomcat/.jenkins/secrets/root_pass
+   - name: Erase 'Unlock Jenkins' window
+     command: mv /usr/share/tomcat/.jenkins/secrets/initialAdminPassword /usr/share/tomcat/.jenkins/secrets/root_pass
      notify: Restart jenkins
